@@ -23,4 +23,4 @@ export const UserDetailsNestModule: NestModule = {
   controllers: [],
   providers: [...UserDetailsNestModule.providers],
 })
-export class UserModule {}
+export class UserDetailsModule {}

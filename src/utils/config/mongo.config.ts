@@ -12,6 +12,7 @@ import {
 export enum ModuleNames {
   USER = 'User',
   USER_DETAILS = 'User_Details',
+  USER_DEVICE = 'User_Device',
 }
 
 let db_url = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?retryWrites=true&w=majority`;
