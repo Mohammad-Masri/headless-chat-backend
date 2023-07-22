@@ -5,7 +5,10 @@ import UserSchema from './user.schema';
 import { UserService } from './user.service';
 import { ModuleNames } from 'src/utils/config/mongo.config';
 
-@Module({
+import NestModule from 'src/utils/config/nest.config';
+import { UserDetailsNestModule } from '../user-details/user-details.module';
+
+export const UserNestModule: NestModule = {
   imports: [
     MongooseModule.forFeature([
       {
@@ -13,8 +16,14 @@ import { ModuleNames } from 'src/utils/config/mongo.config';
         schema: UserSchema,
       },
     ]),
+    ...UserDetailsNestModule.imports,
   ],
+  providers: [UserService, ...UserDetailsNestModule.providers],
+};
+
+@Module({
+  imports: [...UserNestModule.imports],
   controllers: [],
-  providers: [UserService],
+  providers: [...UserNestModule.providers],
 })
 export class UserModule {}

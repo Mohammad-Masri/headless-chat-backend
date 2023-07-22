@@ -4,11 +4,13 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ModuleNames } from 'src/utils/config/mongo.config';
 import IUser from './user.interface';
+import { UserDetailsService } from '../user-details/user-details.service';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectModel(ModuleNames.USER)
     private readonly UserModel: Model<IUser>,
+    private readonly userDetailsService: UserDetailsService,
   ) {}
 }
