@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
-import { Mongoose } from 'mongoose';
+
+import { UserModule } from './modules/user/user.module';
+import { Mongoose } from './utils/config/mongo.config';
 
 @Module({
-  imports: [Mongoose],
+  imports: [Mongoose, UserModule],
   controllers: [],
   providers: [],
 })

@@ -8,7 +8,9 @@ import {
   DATABASE_PASSWORD,
 } from './server.config';
 
-export enum ModuleNames {}
+export enum ModuleNames {
+  USER = 'User',
+}
 
 let db_url = `mongodb://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?retryWrites=true&w=majority`;
 if (DATABASE_IS_SECURE) {
